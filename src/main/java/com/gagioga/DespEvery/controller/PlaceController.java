@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.List;
 import java.util.Optional;
 
 @RequestMapping("/place")
@@ -18,7 +19,7 @@ public class PlaceController {
     private final PlaceService placeService;
 
     @GetMapping
-    public Place getByName(@RequestParam(value = "name") final String name) {
-        return Optional.ofNullable(name).map(placeService::getByName).orElseGet(Place::new);
+    public List<Place> getByName(@RequestParam(value = "name") final String name) {
+        return Optional.ofNullable(name).map(placeService::getByName).orElseGet(() -> List.of(new Place()));
     }
 }

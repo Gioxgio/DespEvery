@@ -1,0 +1,4 @@
+spring.application.name: DespEvery
+
+geonames:
+  username: demo
