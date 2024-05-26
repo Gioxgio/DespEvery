@@ -1,0 +1,10 @@
+services:
+  desperate_everywhere:
+    container_name: desperate_everywhere
+    build:
+      context: .
+      dockerfile: Dockerfile
+    environment:
+      - GEONAMES_USERNAME=${GEONAMES_USERNAME}
+    ports:
+      - "8080:8080"
